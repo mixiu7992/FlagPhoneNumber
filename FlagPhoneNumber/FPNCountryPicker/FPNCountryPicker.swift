@@ -137,9 +137,7 @@ open class FPNCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDat
 		var allCountries = getAllCountries()
 
 		for countryCode in countryCodes {
-			allCountries.removeAll(where: { (country: FPNCountry) -> Bool in
-				return country.code == countryCode
-			})
+			allCountries = allCountries.filter { $0.code != countryCode }
 		}
 		return allCountries
 	}
